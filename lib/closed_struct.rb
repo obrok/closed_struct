@@ -1,13 +1,15 @@
 require "closed_struct/version"
 
 class ClosedStruct
-  def initialize(contents)
+  def initialize(contents, &block)
     @contents = contents
 
     singleton_class = (class << self; self; end)
     @contents.each do |key, value|
       singleton_class.send(:define_method, key) { value }
     end
+
+    singleton_class.class_eval(&block) if block_given?
   end
 
   def to_h

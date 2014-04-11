@@ -28,4 +28,14 @@ describe ClosedStruct do
     expect(first.eql?(second)).to be_false
     expect(first.hash).not_to eq(second.hash)
   end
+
+  it "allows for definitions of additional methods" do
+    object = ClosedStruct.new(:a => :b) do
+      def something
+        :value
+      end
+    end
+
+    expect(object.something).to eq(:value)
+  end
 end
