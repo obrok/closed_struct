@@ -1,6 +1,8 @@
 # ClosedStruct
 
-TODO: Write a gem description
+[![Build Status](https://travis-ci.org/basecrm/method_struct.png?branch=master)](https://travis-ci.org/basecrm/method_struct)
+
+ClosedStructs work like OpenStruct, with the exception of being immutable and not responding to methods which haven't been listed in the input hash
 
 ## Installation
 
@@ -18,7 +20,12 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+
+ClosedStruct.new(:a => :b).a # => :b
+ClosedStruct.new("a" => :b).a # => :b
+ClosedStruct.new(:a => :b).c # => raises NoMethodError
+```
 
 ## Contributing
 
