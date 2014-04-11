@@ -11,7 +11,7 @@ class ClosedStruct
   end
 
   def to_h
-    @contents.to_h
+    @contents
   end
 
   def hash
