@@ -25,6 +25,18 @@ Or install it yourself as:
 ClosedStruct.new(:a => :b).a # => :b
 ClosedStruct.new("a" => :b).a # => :b
 ClosedStruct.new(:a => :b).c # => raises NoMethodError
+
+# It won't allow you to have name clashes in the input:
+
+ClosedStruct.new(:a => :b, "a" => :b) # => raises ArgumentError
+
+# You can also attach additional methods to your objects like so:
+ClosedStruct.new(:a => :b) do
+  def some_method(whatever)
+    :something
+  end
+end
+
 ```
 
 ## Contributing
