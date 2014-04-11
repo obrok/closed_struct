@@ -38,4 +38,12 @@ describe ClosedStruct do
 
     expect(object.something).to eq(:value)
   end
+
+  it "is indifferent to the input getting mutated" do
+    input = {:a => :b}
+    object = ClosedStruct.new(input)
+
+    expect { input[:a] = [:d] }.not_to change { object.to_h }
+    expect { input[:a] = [:c] }.not_to change { object.hash }
+  end
 end
