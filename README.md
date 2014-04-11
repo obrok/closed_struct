@@ -1,6 +1,6 @@
 # ClosedStruct
 
-[![Build Status](https://travis-ci.org/basecrm/method_struct.png?branch=master)](https://travis-ci.org/basecrm/method_struct)
+[![Build Status](https://travis-ci.org/obrok/closed_struct.png?branch=master)](https://travis-ci.org/obrok/closed_struct)
 
 ClosedStructs work like OpenStruct, with the exception of being immutable and not responding to methods which haven't been listed in the input hash
 
