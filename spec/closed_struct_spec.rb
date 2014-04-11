@@ -46,4 +46,9 @@ describe ClosedStruct do
     expect { input[:a] = [:d] }.not_to change { object.to_h }
     expect { input[:a] = [:c] }.not_to change { object.hash }
   end
+
+  it "does not allow duplicate definitions" do
+    expect { ClosedStruct.new(:a => :b, "a" => :b) }.
+      to raise_error(ArgumentError)
+  end
 end

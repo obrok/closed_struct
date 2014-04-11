@@ -6,6 +6,7 @@ class ClosedStruct
 
     singleton_class = (class << self; self; end)
     @contents.each do |key, value|
+      raise ArgumentError.new("Cannot define #{key} as it already exists") if respond_to?(key)
       singleton_class.send(:define_method, key) { value }
     end
 
