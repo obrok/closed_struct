@@ -25,4 +25,8 @@ class ClosedStruct
     (other.class == self.class) && (other.to_h == self.to_h)
   end
   alias_method :eql?, :==
+
+  def empty?
+    @contents.empty?
+  end
 end
