@@ -15,8 +15,8 @@ describe ClosedStruct do
     first = ClosedStruct.new(:a => :b)
     second = ClosedStruct.new(:a => :b)
 
-    expect(first == second).to be_true
-    expect(first.eql?(second)).to be_true
+    expect(first == second).to be_truthy
+    expect(first.eql?(second)).to be_truthy
     expect(first.hash).to eq(second.hash)
   end
 
@@ -24,8 +24,8 @@ describe ClosedStruct do
     first = ClosedStruct.new(:a => :b)
     second = ClosedStruct.new(:a => :c)
 
-    expect(first == second).to be_false
-    expect(first.eql?(second)).to be_false
+    expect(first == second).to be_falsey
+    expect(first.eql?(second)).to be_falsey
     expect(first.hash).not_to eq(second.hash)
   end
 
