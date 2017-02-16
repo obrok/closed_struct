@@ -51,4 +51,13 @@ describe ClosedStruct do
     expect { ClosedStruct.new(:a => :b, "a" => :b) }.
       to raise_error(ArgumentError)
   end
+
+  it "is empty when no contents" do
+    expect(ClosedStruct.new({}).empty?).to be_truthy
+  end
+
+  it "is not empty when have any contents" do
+    expect(ClosedStruct.new(:a => :b).empty?).to be_falsey
+  end
+
 end
