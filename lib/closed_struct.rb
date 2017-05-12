@@ -29,4 +29,12 @@ class ClosedStruct
   def empty?
     @contents.empty?
   end
+
+  def each_pair
+    return enum_for(:each_pair) unless block_given?
+
+    @contents.each_pair do |key, value|
+      yield key, value
+    end
+  end
 end
