@@ -60,4 +60,27 @@ describe ClosedStruct do
     expect(ClosedStruct.new(:a => :b).empty?).to be_falsey
   end
 
+  %w(each each_pair).each do |method_name|
+    describe "##{method_name}" do
+      it "does not yield when empty" do
+        object = ClosedStruct.new({})
+        expect { |b| object.send(method_name, &b) }.to_not yield_control
+      end
+
+      it "yields a key-value pair for a key in the hash" do
+        object = ClosedStruct.new(:a => :b)
+        expect { |b| object.send(method_name, &b) }.to yield_with_args(:a, :b)
+      end
+
+      it "yields a key-value pair for each key in the hash" do
+        object = ClosedStruct.new(:a => :b, :c => :d)
+        expect { |b| object.send(method_name, &b) }.to yield_successive_args([:a, :b], [:c, :d])
+      end
+
+      it "returns an enumerator if a block is not provided" do
+        expect(ClosedStruct.new(:a => :b).send(method_name)).to be_an(Enumerator)
+        expect(ClosedStruct.new({}).send(method_name)).to be_an(Enumerator)
+      end
+    end
+  end
 end
