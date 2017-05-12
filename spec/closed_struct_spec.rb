@@ -77,8 +77,8 @@ describe ClosedStruct do
     end
 
     it "returns an enumerator if a block is not provided" do
-      expect(ClosedStruct.new(:a => :b).each_pair).to be_an(Enumerator)
-      expect(ClosedStruct.new({}).each_pair).to be_an(Enumerator)
+      expect(ClosedStruct.new(:a => :b).each_pair).to contain_exactly([:a, :b])
+      expect(ClosedStruct.new({}).each_pair).to_not include(anything)
     end
   end
 end
