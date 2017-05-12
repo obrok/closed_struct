@@ -30,12 +30,11 @@ class ClosedStruct
     @contents.empty?
   end
 
-  def each
-    return enum_for(:each) unless block_given?
+  def each_pair
+    return enum_for(:each_pair) unless block_given?
 
-    @contents.each do |key, value|
+    @contents.each_pair do |key, value|
       yield key, value
     end
   end
-  alias_method :each_pair, :each
 end
