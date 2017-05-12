@@ -1,2 +1,4 @@
+0.1.2
++ Added #each_pair to iterate
 0.1.1
 + Added #empty? to check if there is any data
