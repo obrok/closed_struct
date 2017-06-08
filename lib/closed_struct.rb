@@ -16,6 +16,7 @@ class ClosedStruct
   def to_h
     @contents
   end
+  alias_method :to_hash, :to_h
 
   def hash
     @contents.hash

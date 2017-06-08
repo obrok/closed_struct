@@ -39,6 +39,11 @@ describe ClosedStruct do
     expect(object.something).to eq(:value)
   end
 
+  it "behaves like an hash" do
+    object = ClosedStruct.new(:a => :b)
+    expect{ {:a => :d}.merge(object) }.not_to raise_error
+  end
+
   it "is indifferent to the input getting mutated" do
     input = {:a => :b}
     object = ClosedStruct.new(input)
