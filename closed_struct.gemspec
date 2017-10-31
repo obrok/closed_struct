@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["pawel.obrok@gmail.com"]
   spec.summary       = %q{An immutable, strict version of OpenStruct}
   spec.description   = %q{ClosedStructs work like OpenStruct, with the exception of being immutable and not responding to methods which haven't been listed in the input hash}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/obrok/closed_struct"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
